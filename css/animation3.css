@@ -1,0 +1,337 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'MyFont';
+  src: url('../ttf/ziti/AlimamaDongFangDaKai-Regular.woff2') format('woff2'),
+  url('../ttf/ziti/AlimamaDongFangDaKai-Regular.woff') format('woff');
+}
+
+body{
+  background-color: #000;
+  overflow: hidden;
+  font-family: 'MyFont', sans-serif; /* 应用自定义字体 */
+}
+canvas{
+  width: 100%;
+}
+
+
+
+
+
+.meteor {
+  position: absolute;
+  z-index: 2;
+  /* 渐变 */
+  background: linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0));
+  height: 2px;
+  width: 100px;
+  /* 蓝色光影 */
+  box-shadow: 0 0 3px rgb(37, 179, 249);
+  border-radius: 30px;
+  right: 0;
+  top: 0;
+  animation: myMeteor 1s linear infinite;
+}
+
+/* 星星样式 */
+
+/*.star {*/
+/*  position: absolute;*/
+/*  z-index: 1;*/
+/*  width: 10px;*/
+/*  height: 10px;*/
+/*  margin: 100px auto;*/
+/*  border-radius: 50%;*/
+/*  background: radial-gradient(at 70% 30%, rgb(246, 243, 243) 1px, #fbfdff -4%, #eeeef4 38%);*/
+/*  !* 蓝色光影 *!*/
+/*  box-shadow: 0 0 6px 1px rgb(37, 179, 249);*/
+/*  animation: myStar 5s linear forwards;*/
+/*}*/
+
+/* 繁星点点动画 */
+
+@keyframes myStar {
+  0% {
+    opacity: .5;
+  }
+
+  25% {
+    transform: translateX(-50%);
+  }
+
+  50% {
+    opacity: .8;
+    transform: translateY(50%);
+  }
+
+  75% {
+    transform: translateX(30%);
+  }
+
+  90% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+
+}
+
+/* 流星划过动画 */
+
+@keyframes myMeteor {
+  0% {
+    transform: translate(-320%, 12000%) rotate(-30deg);
+
+  }
+
+  25% {
+    transform: translate(-535%, 17000%) rotate(-30deg);
+  }
+
+  100% {
+    transform: translate(-795%, 24500%) rotate(-30deg);
+  }
+}
+
+/* 缩放动画 */
+@keyframes myScale {
+
+  0% {
+    opacity: .5;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+
+
+html {
+  font-size: 14px;
+}
+
+.channel {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0; /* 初始透明度为0 */
+  animation: fadeInOut 10s ease-out forwards; /* 应用渐入渐出动画 */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1; /* 渐入结束，中间点完全透明 */
+  }
+  100% {
+    opacity: 0; /* 渐出结束 */
+  }
+}
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  perspective-origin: left;
+  transform-style: preserve-3d;
+}
+
+
+
+
+.title {
+  opacity: 0; /* 初始透明度为0 */
+  animation: fadeIn 3s ease-out forwards; /* 应用渐入动画 */
+}
+
+/* 3秒后标题消失 */
+.title.fade-out {
+  animation: fadeOut 3s ease-out forwards; /* 应用渐出动画 */
+}
+
+.frame-navigator {
+  position: fixed; /* 固定定位，相对于视口固定 */
+  right: 100px; /* 距离右侧10像素 */
+  top: 50%; /* 距离顶部50% */
+  transform: translateY(-50%); /* 向上移动自身高度的50%，以垂直居中 */
+  z-index: 10; /* 设置z-index为10，确保导航栏在页面内容之上 */
+  /* 可以添加背景色和边框来增加视觉效果 */
+  background-color: rgba(0, 0, 0, 0); /* 背景透明 */
+  padding: 10px; /* 内边距 */
+}
+
+.arrow {
+  cursor: pointer; /* 鼠标悬停上时显示为可点击状态 */
+  fill: #fff; /* SVG箭头颜色设置为白色 */
+  width: 40px; /* SVG箭头宽度 */
+  height: 40px; /* SVG箭头高度 */
+}
+
+.arrow:hover {
+  fill: #ddd; /* 鼠标悬停上时SVG箭头颜色变为淡灰色 */
+}
+
+.frames {
+  background-color: rgba(0, 0, 0, 0);
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 子元素垂直排列 */
+  align-items: center; /* 子元素水平居中 */
+  margin-top: 20px; /* 顶部外边距 */
+  margin-bottom: 20px; /* 底部外边距 */
+}
+
+.frame {
+  width: 10px; /* 点的宽度 */
+  height: 10px; /* 点的高度 */
+  background-color: #ccc; /* 点的背景颜色 */
+  margin: 10px; /* 点的外边距 */
+  border-radius: 50%; /* 点的圆角，设置为50%则为圆形 */
+  cursor: pointer; /* 鼠标悬停上时显示为可点击状态 */
+}
+
+.frame.active {
+  background-color:#ccc; /* 激活的点的背景颜色 */
+}
+
+.footer-text {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  font-size: 25px; /* 指定字体大小 */
+  font-weight: bold; /* 字体粗细 */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.footer1-text {
+  position: fixed;
+  bottom: 60px;
+  right: 100px;
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  font-size: 25px; /* 指定字体大小 */
+  font-weight: bold; /* 字体粗细 */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.modal {
+  display: block; /* 默认不显示 */
+  position: fixed; /* 固定定位 */
+  z-index: 2; /* 位于顶层 */
+  left: 50%; /* 水平方向先定位到屏幕中间（后续通过 transform 来精确调整） */
+  top: 50%; /* 垂直方向先定位到屏幕中间（后续通过 transform 来精确调整） */
+  width: 1200px; /* 设置宽度为 600px，可根据实际需求调整 */
+  height: 500px; /* 设置高度为 400px，可根据实际需求调整 */
+  overflow: auto; /* 允许滚动 */
+  background-color: rgba(255, 255, 255, 0); /* 设置为完全透明，修改透明度值为 0 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果，让模态框更立体，可选样式 */
+  padding: 20px; /* 添加内边距，使内容与模态框边框有一定间隔 */
+  border-radius: 5px; /* 给模态框添加圆角，让外观更美观，可选样式 */
+  transform: translate(-50%, -50%); /* 通过这个属性将模态框往左和往上移动自身宽度和高度的一半，从而精确居中 */
+}
+
+.modal:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 鼠标悬停时阴影更明显，可根据喜好调整参数 */
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0); /* 设置为完全透明，修改透明度值为 0 */
+  margin: 10% auto; /* 垂直居中 */
+  padding: 20px;
+  width: 50%; /* 宽度50% */
+  position: relative; /* 相对定位 */
+  color: white; /* 设置文字颜色为白色，让模态框内文字显示为白色 */
+  font-size: 25px;
+}
+
+.close-modal {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  position: absolute; /* 使用绝对定位，相对于最近的已定位祖先元素进行定位，这里就是相对于.modal-content */
+  top: 10px; /* 距离顶部 10px，可根据实际需求调整 */
+  right: 10px; /* 距离右边 10px，可根据实际需求调整 */
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.starsforty-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.star-info {
+  position: absolute;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 5px;
+  visibility: hidden; /* 默认隐藏信息 */
+  transition: visibility 0.3s, font-size 0.3s; /* 平滑显示效果和字体大小变化 */
+  font-size: 30px; /* 初始字体大小 */
+}
+
+.star:hover + .star-info {
+  visibility: visible; /* 鼠标悬停时显示信息 */
+  font-size: 20px; /* 鼠标悬停时字体大小 */
+}
+
+
+
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+

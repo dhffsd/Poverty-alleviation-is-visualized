@@ -1,0 +1,182 @@
+body, html {
+  margin: 0; /* 移除默认的边距 */
+  padding: 0; /* 移除默认的内边距 */
+  width: 100%; /* 设置宽度为视口的100% */
+  height: 100%; /* 设置高度为视口的100% */
+  overflow: hidden; /* 隐藏滚动条 */
+  font-family: 'MyFont', sans-serif; /* 应用自定义字体 */
+}
+
+/* 视频背景样式 */
+#background-video, #background1-video {
+  position: fixed; /* 固定定位，覆盖整个视口 */
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100; /* 置于内容下方 */
+  background-size: cover; /* 背景覆盖整个容器 */
+}
+
+/* 模糊效果 */
+#background1-video.blur {
+  filter: blur(5px);
+}
+
+/* 文本覆盖层样式 */
+#text-overlay {
+  position: absolute; /* 绝对定位 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 居中对齐 */
+  width: 100%;
+  white-space: nowrap; /* 防止文本换行 */
+  font-size: 16px;
+}
+
+/* 文本淡入淡出效果 */
+.text-fade {
+  opacity: 0;
+  transition: opacity 2s ease-in-out; /* 平滑过渡效果 */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 10px;
+}
+
+/* 闪烁动画 */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.flash {
+  animation: flash 2s forwards; /* 执行闪烁动画 */
+}
+
+.text-fade.visible {
+  opacity: 1; /* 显示文本 */
+}
+
+/* 菜单图标和关闭按钮样式 */
+/* 菜单图标和关闭按钮样式 */
+#menu-icon, #menu-close {
+  position: fixed;
+  top: 20px; /* 保持顶部边距 */
+  left: 20px; /* 保持左侧边距 */
+  width: 60px; /* 增加宽度 */
+  height: 60px; /* 增加高度 */
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.3s;
+  font-size: 40px; /* 增大图标字体大小 */
+  line-height: 60px; /* 根据新高度垂直居中 */
+  text-align: center; /* 水平居中 */
+  color: white; /* 图标颜色 */
+}
+
+/* 菜单容器样式 */
+#menu-container {
+  position: fixed;
+  top: 0;
+  left: -100%; /* 初始时完全隐藏 */
+  width: 30%; /* 菜单宽度 */
+  height: 100%; /* 菜单高度与图片一致 */
+  background: rgba(255, 255, 255, 0.8); /* 背景颜色 */
+  transition: left 0.3s;
+  z-index: 500;
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 垂直排列菜单项 */
+  justify-content: space-around; /* 菜单项均匀分布 */
+  align-items: center; /* 菜单项居中 */
+}
+
+#menu-container.visible {
+  left: 0; /* 显示菜单 */
+}
+
+#menu-container ul {
+  list-style: none; /* 移除列表样式 */
+  padding: 0;
+  margin: 0;
+  width: 100%; /* 列表项宽度与菜单宽度一致 */
+}
+
+#menu-container li {
+  padding: 50px; /* 增加内边距 */
+  font-size: 50px; /* 增大字体大小 */
+  color: white; /* 字体颜色 */
+  text-align: center; /* 水平居中文本 */
+}
+
+/* 移除最后一个菜单项的底部边框 */
+#menu-container li:last-child {
+  border-bottom: none;
+}
+
+
+
+
+
+/* 在CSS文件的顶部定义字体 */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../ttf/ziti/AlimamaDongFangDaKai-Regular.woff2') format('woff2'),
+  url('../ttf/ziti/AlimamaDongFangDaKai-Regular.woff') format('woff');
+}
+
+/* 文本覆盖层样式 */
+#text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center; /* 水平居中文本 */
+  font-family: 'MyFont', sans-serif; /* 应用自定义字体 */
+}
+
+/* 文本淡入淡出效果 */
+.text-fade {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 30px; /* 增大字体大小 */
+}
+
+.text-fade.visible {
+  opacity: 1; /* 显示文本 */
+}
+
+.menu-hidden {
+  display: none; /* 隐藏菜单相关元素 */
+}
+
+/* 箭头容器样式，固定在底部 */
+#arrow-container {
+  position: fixed;
+  bottom: 50px; /* 距离底部20px */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* 确保箭头在最上层 */
+}
+
+/* SVG图标样式 */
+.icon {
+  cursor: pointer; /* 鼠标悬停时显示为可点击状态 */
+  transition: fill 0.3s; /* 点击时颜色变化效果 */
+}
+
+.icon:hover {
+  fill: #ddd; /* 鼠标悬停时图标颜色 */
+}

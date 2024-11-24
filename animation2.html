@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ani</title>
+  <link rel="stylesheet" href="css/animation2.css">
+</head>
+<div class="modal">
+  <div class="modal-content">
+    <p>每一个枷锁都是挡在脱贫攻坚胜利路上的挡路石头</p>
+    <p>请移动鼠标破开枷锁，了解脱贫攻坚相关政策</p>
+
+  </div>
+  <button class="close-modal" onclick="closeModal()"><svg t="1732355257367" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg&#34;p-id="3389" width="50" height="50"><path d="M286.165333 798.165333L512 572.330667l225.834667 225.834666 60.330666-60.330666L572.330667 512l225.834666-225.834667-60.330666-60.330666L512 451.669333 286.165333 225.834667 225.834667 286.165333 451.669333 512l-225.834666 225.834667z" fill="#ffffff" p-id="3390"></path></svg></button>
+</div>
+<div class="channel">
+  攻坚<br>
+  在贫困的长夜中播下希望的种子<br>
+  让彷徨的村民看到曙光的破晓<br>
+  它穿越艰难的险阻，贫瘠的土壤<br>
+  它源自不懈的努力<br>
+  却总能引领至富裕的明天<br>
+
+</div>
+<div class="frame-navigator">
+  <!-- 使用SVG作为向上的箭头 -->
+  <svg class="arrow up" onclick="navigateFramess(-1)" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M512.65013765 984.64435856c-256.90127577 0-465.89300251-209.04173162-465.89300251-465.89300221 0-256.95130047 209.04173162-465.94300667 465.89300251-465.94302789 256.95130047 0 465.89300251 209.04173162 465.89300267 465.94302789 0.05000433 256.85127109-208.94170214 465.89300251-465.89300267 465.89300221z m0-903.58037562c-241.29817898 0-437.63736883 196.28918578-437.63736892 437.63734865 0 241.2481539 196.33919014 437.58736467 437.63736892 437.58736418s437.63736883-196.33919014 437.63734825-437.58736418c0-241.34818298-196.33919014-437.63736883-437.63734825-437.63734865z"></path>
+    <path d="M300.80783866 510.9497873v48.85975277l188.43761245-196.03912357v364.77281725h34.90698215v-364.77281725l188.33758317 196.03912357v-48.85975277l-205.84108888-214.09273764z"></path>
+  </svg>
+  <div class="frames">
+    <div class="frame" onclick="selectFrame(this)" data-frame-index="0"></div>
+    <div class="frame" onclick="selectFrame(this)" data-frame-index="1"></div>
+    <div class="frame" onclick="selectFrame(this)" data-frame-index="2"></div>
+    <div class="frame" onclick="selectFrame(this)" data-frame-index="3"></div>
+  </div>
+  <!-- 使用SVG作为向下的箭头 -->
+  <svg class="arrow down" onclick="navigateFramess(1)" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512 512 230.4 512 512-230.4 512 512 512z m0-992c-262.4 0-480 217.6-480 480s217.6 480 480 480 480-217.6 480-480-217.6-480-480-480z"></path>
+    <path d="M492.8 294.4v435.2l-179.2-179.2c-6.4-6.4-19.2-6.4-25.6 0-6.4 6.4-6.4 19.2 0 25.6l211.2 204.8h6.4s6.4 6.4 12.8 6.4 6.4 0 12.8-6.4l211.2-204.8c6.4-6.4 6.4-19.2 0-25.6-6.4-6.4-19.2-6.4-25.6 0l-179.2 179.2v-435.2c0-6.4-6.4-19.2-19.2-19.2s-25.6 12.8-25.6 19.2z"></path>
+  </svg>
+</div>
+<div class="footer-text" onclick="showModal()">脱贫攻坚中攻克难关</div>
+<div class="light-point" id="lightPoint"></div>
+<body>
+<canvas id="my_canvas"></canvas>
+<!-- 引入粒子插件 -->
+<script src="particle/particle.min.js"></script>
+<script src="JavaScript/animation2.js"></script>
+<script>
+  // 初始化粒子（画布id）
+  particle.init('my_canvas');
+</script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>脱贫攻坚</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<video id="background-video" autoplay muted loop>
+  <source src="video/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video id="background1-video" autoplay muted loop style="display:none;">
+  <source src="video/background1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div id="menu-icon" class="icon" onclick="toggleMenu()">&#9776;</div>
+<div id="menu-container" class="menu">
+  <div id="menu-close" class="icon" onclick="toggleMenu()">&#10005;</div>
+  <ul>
+    <li>Home</li>
+    <li>Project</li>
+    <li>Team</li>
+  </ul>
+</div>
+<div id="text-overlay">
+  <h1 class="text-fade" id="text1">在2020年初，中国在脱贫攻坚战中取得了历史性成就。<br>
+    这场战役中，人口、资源、信息、情感等的“流动”意义，与种族、权利、机制、意识等的“边界”问题，呈现出错综复杂的情形。<br>
+    The battle against poverty in China at the beginning of 2020 has achieved historic success.<br>
+    In this battle, the significance of the "flow" of population, resources, information, <br>
+    and emotions, along with the "boundaries" of ethnicity,
+    rights, mechanisms, and awareness, have presented a complex situation.</h1>
+  <h1 class="text-fade" id="text2">重大的脱贫攻坚战往往会影响一代人的价值观以及对奋斗和进步的认知。<br>
+    The significant battle against poverty often greatly influences the values of a generation and their understanding of struggle and progress.</h1>
+  <h1 class="text-fade" id="text3">我们的作品旨在运用可视化方式记录此次脱贫攻坚战的不同维度数据，<br>
+    并用互动叙事的网页形式和隐喻修辞的视觉语言来探讨奋斗的边界，引发观者思考与共鸣。<br>
+    Our work aims to use data visualization to document the multifaceted aspects of the battle against poverty,<br>
+    and employ interactive storytelling through web formats and metaphorical visual language to explore the boundaries of struggle, <br>
+    provoking thought and empathy among viewers.</h1>
+  <h1 class="text-fade" id="text4">一策惠三区：脱贫攻坚的共鸣<br>
+    —— One Policy, Three Regions: The Resonance of Poverty</h1>
+</div>
+<div id="arrow-container">
+  <!-- 直接嵌入SVG代码，并添加点击事件 -->
+  <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" onclick="scrollToNext()">
+    <path d="M510.719332 49.850361c-249.223155 0-451.256544 202.034413-451.256544 451.255521s202.033389 451.255521 451.256544 451.255521c249.221108 0 451.254497-202.034413 451.254497-451.255521S759.94044 49.850361 510.719332 49.850361zM510.719332 908.36026c-228.877781 0-407.255401-178.37762-407.255401-407.254378 0-228.876758 178.37762-407.254378 407.255401-407.254378 228.874711 0 407.254378 178.378643 407.254378 407.254378C917.972687 729.98264 739.594043 908.36026 510.719332 908.36026z" fill="#ffffff"></path>
+    <path d="M750.930229 384.582005 812.23548 384.582005 511.122515 712.798259 209.200114 384.582005 270.642488 384.582005 511.122515 646.003993Z" fill="#ffffff"></path>
+  </svg>
+</div>
+
+<script src="JavaScript/script.js"></script>
+</body>
+</html>

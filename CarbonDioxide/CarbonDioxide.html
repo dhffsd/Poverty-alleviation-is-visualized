@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>脱贫攻坚相关政策</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;}
+</style>
+
+</head>
+<body>
+
+	<div class="wrap">
+		<div class="wid_1820">
+
+			<div class="header">
+				<p class="tmtext"></p>
+				<p>
+					<span class="hefont">脱贫攻坚相关政策</span>
+				</p>
+
+			</div>
+
+			<div class="baner">
+				<h2><a class="jybt">脱贫攻坚图</a></h2>
+				<h2><a class="wbgl">攻坚总览</a></h2>
+				<h2><a class="kbbt">贫困人数统计</a></h2>
+				<h2><a href="../animation3.html">下一页</a></h2>
+			</div>
+
+			<div class="content content1">
+				<p class="ctitle"></p>
+				<div class="cznl">
+
+					<!-- 关键代码 -->
+
+
+
+					<div id="pie1" class="echart_div pie1"></div>
+					<div id="pie2" class="echart_div pie2"></div>
+					<div class="piebt piebt1">贫困人数（2015年）</div>
+					<div class="piebt piebt2">贫困人数（2020年）</div>
+
+
+
+					<!-- 结构图模块 -->
+					<div id="guanxi" class="echart_div guanxi"> <img src="img/last.jpg" alt="脱贫攻坚战略图"></div>
+					<div class="gxlist tb"><h3>政策法规</h3>
+						<div class="sanlianbt"><a href="WordCloud.html">网络舆情云图</a></div>
+            <ul>
+              <a href="http://www.npb.gov.cn/">
+                <li>国家扶贫办官方网站</li>
+              </a>
+              <a href="https://www.gov.cn/yaowen/liebiao/202409/content_6975701.htm">
+                <li>7.7亿农村人口摆脱贫困——脱贫攻坚成果斐然</li>
+              </a>
+              <a href="https://www.gov.cn/yaowen/liebiao/202409/content_6973875.htm">
+                <li>刘国中在内蒙古调研时强调：毫不放松抓好秋粮生产 着力巩固拓展脱贫攻坚成果</li>
+              </a>
+              <a href="https://www.gov.cn/yaowen/liebiao/202409/content_6972438.htm">
+                <li>刘国中在广西调研时强调：持续巩固拓展脱贫攻坚成果 扎实有力推进乡村全面振兴</li>
+              </a>
+              <a href="https://www.gov.cn/yaowen/liebiao/202404/content_6947333.htm">
+                <li>李强在贵州调研时强调：毫不放松抓好各项政策举措落实 扎实有效巩固拓展脱贫攻坚成果</li>
+              </a>
+              <a href="https://www.gov.cn/yaowen/liebiao/202401/content_6929023.htm">
+                <li>刘国中在河北调研时强调：持续巩固拓展脱贫攻坚成果 有力有效推进乡村全面振兴</li>
+              </a>
+              <a href="https://www.gov.cn/lianbo/bumen/202308/content_6899412.htm">
+                <li>刘焕鑫：借鉴脱贫攻坚经验 全面推进乡村振兴
+                </li>
+              </a>
+              <a href="https://www.gov.cn/lianbo/difang/202307/content_6891882.htm">
+                <li>河北多措并举推进巩固拓展脱贫攻坚成果同乡村振兴有效衔接</li>
+              </a>
+              <a href="http://www.gov.cn/xinwen/2021-03/01/content_5493728.htm">
+                <li>国务院新闻办举行新闻发布会介绍国家乡村振兴局有关情况</li>
+              </a>
+              <a href="http://www.gov.cn/xinwen/2021-03/03/content_5495348.htm">
+                <li>国家乡村振兴局：全面推进乡村振兴 加快农业农村现代化</li>
+              </a>
+              <a href="http://www.gov.cn/xinwen/2021-03/04/content_5496920.htm">
+                <li>国家乡村振兴局：巩固拓展脱贫攻坚成果 推进乡村振兴</li>
+              </a>
+              <a href="http://www.gov.cn/xinwen/2021-03/06/content_5498586.htm">
+                <li>国家乡村振兴局：全面推进乡村振兴 加快农业农村现代化</li>
+              </a>
+              </a>
+            </ul>
+					</div>
+
+					<div class="jydt">
+						<!-- 统计图 -->
+						<div class="lins1" id = "lins1"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script src="libs/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 发散图ecahrt -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/sanlian.js"></script>
+<script>
+
+	$(function(){
+		var titme1="";
+
+		$(".baner a").click(function(){
+
+			$(".baner a").removeClass("ahover");
+			$(".cznl>div").css("display","none");
+			$(".cznl").css("display","block");
+			var chartid = $(this).attr("class");
+
+			if(chartid === "jybt"){
+				$(".ctitle").html("脱贫攻坚图");
+				$("#guanxi,.gxlist").css("display","block");
+			}
+			else if(chartid === "wbgl"){
+				$(".jydt").css("display","block");
+				var lins1 = echarts.init(document.getElementById('lins1'));
+				lins1.setOption(option1);
+				$(".ctitle").html("部分省份贫困人口折线图");
+			}
+
+			else if(chartid === "kbbt"){
+				$(".ctitle").html("贫困人数饼图");
+				$("#pie1,.piebt").css("display","block");
+				$("#pie2,.piebt").css("display","block");
+				var myChart2 = echarts.init(document.getElementById('pie1'));
+				var myChart3 = echarts.init(document.getElementById('pie2'));
+      			myChart2.setOption(option2);
+      			myChart3.setOption(option22);
+			}
+
+			$(this).addClass("ahover");
+
+
+		})
+		var address = window.location.href;
+		if(address.split("?")[1] == "1"){
+			$(".wbgl").click();
+			//window.location.href = "index.html";
+			   		var url = window.location.href;
+					url = url.split('?')[0];
+			        window.history.pushState({}, 0, url);
+		}
+		else{
+			$(".baner .jybt").click();
+		}
+
+	})
+</script>
