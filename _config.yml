@@ -1,1 +1,29 @@
+# 这是 GitHub Pages 站点的配置文件
+# 以下为自定义设置
 
+# 站点的名称
+name: My Personal Blog
+
+# 站点的描述
+description: >-
+  A blog where I share my thoughts, ideas, and projects.
+
+# 站点的 URL
+# 如果你的站点是在 'https://yourusername.github.io' 上，那么只需要设置 url 为你的用户名.github.io
+url: https://dhffsd.github.io/Poverty-alleviation-is-visualized/
+
+# 选择一个主题
+theme: minima
+
+
+
+# 站点的作者信息
+author:
+  name: Your Name
+  email: your-email@example.com
+  github: your-github-username
+
+# 社交链接
+social:
+  twitter: your-twitter-username
+  linkedin: your-linkedin-username
